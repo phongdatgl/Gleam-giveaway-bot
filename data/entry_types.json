@@ -10,10 +10,12 @@
     "reddit_visit",
     "youtube_visit_channel",
     "twitter_view_post",
-    "facebook_view_post"
+    "facebook_view_post",
+    "podcast_subscribe"
   ],
   "discord": [
-    "discord_enter"
+    "discord_enter",
+    "discord_join_server"
   ],
   "facebook": [
     "facebook_enter"

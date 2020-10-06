@@ -228,7 +228,7 @@ def complete_additional_details(giveaway_info, gleam_config):
             return False
 
     time.sleep(1)
-    
+
     # Find the save/continue button
     buttons = browser.get_elems_by_css(".btn-primary:not([disabled])")
     visible_buttons = [button for button in buttons if button.is_displayed()]
@@ -264,7 +264,7 @@ def do_giveaway(info):
     for entry_method in entry_methods:
         entry_method_strings = create_entry_method_strings(entry_method)
 
-        print(f"\n\tDoing {entry_method_strings['default_str']})", end='')
+        print(f"\n\tDoing {entry_method_strings['default_str']}", end='')
 
         minimize_all_entries()
 
@@ -360,7 +360,7 @@ def do_giveaway(info):
     for entry_method in elems_to_revisit:
         entry_method_strings = create_entry_method_strings(entry_method)
 
-        print(f"\n\tDoing {entry_method_strings['default_str']})", end='')
+        print(f"\n\tDoing {entry_method_strings['default_str']}", end='')
 
         try:
             minimize_all_entries()

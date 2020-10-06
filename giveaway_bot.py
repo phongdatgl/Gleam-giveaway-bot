@@ -55,6 +55,9 @@ def main():
 
     print(f"\nTotal givewaways after filtering: {len(giveaways)}")
 
+    if len(giveaways) == 0:
+        exit()
+
     if config['twitter_auth']['consumer_key'] != "":
         twitter.init(config['twitter_auth'])
     else:
@@ -67,11 +70,13 @@ def main():
     if config['do_playrgg_giveaways']:
         browser.apply_cookies("https://playr.gg/")
 
+    num = 1
     # complete the giveaways
     for g in giveaways:
         print("\n")
         browser.get_url(g.url)
-        print(f"Visited {g.url}")
+        print(f"{num}/{len(giveaways)} Visited {g.url}")
+        num += 1
 
         try:
             g.get_info()
@@ -84,6 +89,8 @@ def main():
             browser.refresh()
 
             g.get_info(after_giveaway=True)
+
+            logger.write_log("data/history.csv", g)
 
         except giveaway.CountryError:
             print("\tNot available in your country", end='')
@@ -110,14 +117,14 @@ def main():
 
         except giveaway.CaptchaError:
             print("\tGiveaway requires Human Verification", end='')
-            logger.write_error("data/errors.csv", g)
+            utils.stop_loading_text()
+            browser.close_driver()
+            exit()
             continue
 
         except ValueError:
             logger.write_error("data/errors.csv", g)
             continue
-
-        logger.write_log("data/history.csv", g)
 
 
 if __name__ == '__main__':

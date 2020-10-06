@@ -7,7 +7,11 @@
     "daily_bonus",
     "click",
     "instagram_profile",
-    "facebook_post"
+    "facebook_post",
+    "tiktok_view_video",
+    "mixer_subscription",
+    "mixer_follow",
+    "tiktok_view_profile"
   ],
   "twitter": [
     "twitter_tweet",
@@ -17,9 +21,6 @@
   ],
   "twitch": [
     "twitch_follow"
-  ],
-  "mixer": [
-    "mixer_follow"
   ],
   "facebook": [
     "facebook_authorization"
@@ -31,7 +32,6 @@
   ],
   "blacklist": [
     "donation",
-    "mixer_subscription",
     "twitch_subscription",
     "secret_code"
   ]
