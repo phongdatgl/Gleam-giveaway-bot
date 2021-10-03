@@ -117,9 +117,7 @@ def main():
 
         except giveaway.CaptchaError:
             print("\tGiveaway requires Human Verification", end='')
-            utils.stop_loading_text()
-            browser.close_driver()
-            exit()
+            input("\tPress any button when finished verifying\n")
             continue
 
         except ValueError:
