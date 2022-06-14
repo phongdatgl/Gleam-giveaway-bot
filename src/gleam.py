@@ -46,6 +46,7 @@ def get_info():
     campaign_elem = browser.wait_until_found("div[ng-controller='EnterController']>div[ng-init^='initCampaign']", 1)
 
     if contestant_elem is None or campaign_elem is None:
+        print('Timeout waiting for element. Maybe captcha required.')
         return None, None
 
     # get the json from the webelement attribute and parse it

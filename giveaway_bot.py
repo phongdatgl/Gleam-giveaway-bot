@@ -13,10 +13,6 @@ def main():
     with open('config.json') as json_data_file:
         config = json.load(json_data_file)
 
-    if not os.path.isfile("data/cookies.pkl"):
-        print("Did not find a authentication cookies file, please run login.py first")
-        exit(0)
-
     if config['do_playrgg_giveaways'] and not os.path.isfile("data/cookies_playrgg.pkl"):
         print("If you want to complete playrgg giveaways, first run login.py and complete the steps.")
         exit(0)
@@ -63,12 +59,9 @@ def main():
     else:
         print("Not using twitter, no details given in the config")
 
-    browser.init_driver()
+    browser.init_driver(config['user-data-dir'], config['profile-directory'], headless=False)
 
-    # load the cookies
-    browser.apply_cookies("https://gleam.io/")
-    if config['do_playrgg_giveaways']:
-        browser.apply_cookies("https://playr.gg/")
+    # no need import cookie
 
     num = 1
     # complete the giveaways

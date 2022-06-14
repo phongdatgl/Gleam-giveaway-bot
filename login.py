@@ -7,7 +7,7 @@ if __name__ == '__main__':
         config = json.load(json_data_file)
 
     browser.init_driver(config['user-data-dir'], config['profile-directory'], headless=False)
-    browser.get_url("https://gleam.io/examples/competitions/every-entry-type")
+    browser.get_url("https://gleam.io/templates/competitions/every-entry")
 
     print("Gleam login:")
     input("\tPress any button when finished logging in\n")
